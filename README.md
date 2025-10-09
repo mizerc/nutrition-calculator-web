@@ -1,3 +1,13 @@
+# About
+
+Project initialized using Vite with `npm create vite@latest nutrition-calculator -- --template react-ts`.
+
+# Deploying
+
+Just run `npm run deploy` to build in gh-pages branch.
+
+Live at [https://mauricioize.dev/nutrition-calculator/](https://mauricioize.dev/nutrition-calculator/).
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
