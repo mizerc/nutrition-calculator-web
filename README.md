@@ -1,5 +1,7 @@
 # About
 
+Testing the new React Router 7 and React 19.
+
 Project initialized using Vite with `npm create vite@latest nutrition-calculator -- --template react-ts`.
 
 # Deploying
