@@ -4,11 +4,20 @@ Testing the new React Router 7 and React 19.
 
 Project initialized using Vite with `npm create vite@latest nutrition-calculator -- --template react-ts`.
 
+Tailwind config file: `npx tailwindcss init --full`
+
 # Deploying
 
 Just run `npm run deploy` to build in gh-pages branch.
 
 Live at [https://mauricioize.dev/nutrition-calculator/](https://mauricioize.dev/nutrition-calculator/).
+
+# Future Work
+
+- Responsible sidebar layout
+- Resposible grid layout
+- A11y
+- Monitoring
 
 # React + TypeScript + Vite
 
