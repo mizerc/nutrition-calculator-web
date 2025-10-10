@@ -6,6 +6,8 @@ Project initialized using Vite with `npm create vite@latest nutrition-calculator
 
 Tailwind config file: `npx tailwindcss init --full`
 
+Icons: https://react-icons.github.io/react-icons/icons/fa/
+
 # Deploying
 
 Just run `npm run deploy` to build in gh-pages branch.

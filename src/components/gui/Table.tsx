@@ -1,3 +1,4 @@
+import { COLORS } from "@/styles/Colors";
 import { Link } from "react-router-dom";
 import { styled } from "twin.macro";
 
@@ -35,7 +36,7 @@ const Table = styled.table`
 
 const TableHeader = styled.thead`
   tr {
-    background-color: #e0d0d0;
+    background-color: ${COLORS.tableHeaderBackground};
   }
   th {
     text-align: left;
@@ -43,26 +44,31 @@ const TableHeader = styled.thead`
     font-size: 0.9rem;
     font-weight: 600;
     color: #181818;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid ${COLORS.tableHeaderBorder};
   }
 `;
 
 const TableBody = styled.tbody`
   tr {
     &:nth-child(even) {
-      background-color: #dfdfdf;
+      background-color: ${COLORS.tableEvenRowBackground};
+    }
+    &:nth-child(odd) {
+      background-color: ${COLORS.tableOddRowBackground};
     }
 
     &:hover {
-      background-color: #bfb1b1;
+      background-color: ${COLORS.tableMouseOverRow};
     }
   }
   td {
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
     color: #101010;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid ${COLORS.tableRowBottomBorder};
   }
 `;
 
-export { TableBody, TableHeader, Table, AddButton, Title, Header };
+const TableRow = styled.tr``;
+
+export { TableBody, TableHeader, Table, TableRow, AddButton, Title, Header };

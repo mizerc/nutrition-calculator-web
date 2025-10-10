@@ -1,5 +1,4 @@
 import React from "react";
-import ContentContainer from "../components/ContentContainer";
 import {
   AddButton,
   Header,
@@ -7,11 +6,11 @@ import {
   TableBody,
   TableHeader,
   Title,
-} from "../components/Table";
-import VList from "@/components/VList";
+} from "@/components/gui/Table";
+import VList from "@/components/gui/VList";
+import Spacer from "@/components/gui/Spacer";
 
-const ListPage: React.FC = () => {
-  // Example data
+const MealList: React.FC = () => {
   const data = [
     { id: 1, name: "Item 1", status: "Active" },
     { id: 2, name: "Item 2", status: "Inactive" },
@@ -38,8 +37,9 @@ const ListPage: React.FC = () => {
   return (
     <VList>
       <Header>
-        <Title>ListPage</Title>
-        <AddButton to={"/"}>+ Add New</AddButton>
+        <Title>Meals</Title>
+        <Spacer />
+        <AddButton to={"/meals/create"}>+ Add New</AddButton>
       </Header>
 
       <Table>
@@ -64,4 +64,4 @@ const ListPage: React.FC = () => {
   );
 };
 
-export default ListPage;
+export default MealList;

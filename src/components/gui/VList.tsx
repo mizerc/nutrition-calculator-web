@@ -3,8 +3,9 @@ import styled from "styled-components";
 const VList = styled.div`
   display: flex;
   flex-direction: column;
-  border: 2px solid #3dc514;
-  padding: 1.5rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2rem;
 `;
 
 export default VList;

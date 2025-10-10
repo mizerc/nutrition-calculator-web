@@ -6,7 +6,6 @@ import styled from "styled-components";
 const ContentContainer = styled.div`
   display: fixed;
   left: 200px;
-
   margin-top: 4rem;
   margin-left: 16rem;
 `;
