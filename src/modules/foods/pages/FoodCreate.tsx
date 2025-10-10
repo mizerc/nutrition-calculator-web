@@ -42,7 +42,25 @@ const FoodCreate = () => {
       <FormContainer onSubmit={handleSubmit}>
         <FormHeader title="Food Create" button={<Button>Save</Button>} />
 
-        <FormInput label="Name" value={food.name} onChange={handleChange} />
+        <FormInput
+          label="Name"
+          placeholder="Orange Juice"
+          value={food.name}
+          onChange={handleChange}
+        />
+        <FormInput
+          label="Portion (g)"
+          placeholder="100"
+          value={food.name}
+          onChange={handleChange}
+        />
+        <FormInput
+          label="Kcal"
+          placeholder={"250"}
+          type={"number"}
+          value={food.name}
+          onChange={handleChange}
+        />
 
         {/* <FieldGroup>
           <Label>Image URL</Label>

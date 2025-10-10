@@ -51,7 +51,9 @@ const MealCreate = () => {
       <FormContainer onSubmit={handleSubmit}>
         <FormHeader title="Meal Create" button={<Button>Save</Button>} />
 
-        <FormInput label="Name" value={meal.name} onChange={handleChange} />
+        <FormInput label="Name" placeholder="Breakfast" value={meal.name} onChange={handleChange} />
+        <FormInput label="Date" placeholder="Oct 2, 2025" value={meal.name} onChange={handleChange} />
+        <FormInput label="Time" placeholder="12:40 PM" value={meal.name} onChange={handleChange} />
         <MealFoodList />
       </FormContainer>
     </VList>

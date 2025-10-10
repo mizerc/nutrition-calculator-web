@@ -13,6 +13,7 @@ import { useApi } from "@/hooks/useApi";
 import type { Food } from "../types/Food";
 import { useNavigate } from "react-router-dom";
 import Spacer from "@/components/gui/Spacer";
+import FormHeader from "@/components/gui/FormHeader";
 
 const FoodList: React.FC = () => {
   const navigate = useNavigate();
@@ -28,17 +29,14 @@ const FoodList: React.FC = () => {
 
   return (
     <VList>
-      <Header>
-        <Title>FoodList</Title>
-        <Spacer />
-        <AddButton to={"/foods/create"}>+ Add New</AddButton>
-      </Header>
+      <FormHeader title="Foods" />
 
       <Table>
         <TableHeader>
           <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Actions</th>
           </tr>
         </TableHeader>
         <TableBody>
@@ -51,6 +49,7 @@ const FoodList: React.FC = () => {
             >
               <td>{item.id}</td>
               <td>{item.name}</td>
+              <td>Edit | View</td>
             </TableRow>
           ))}
         </TableBody>

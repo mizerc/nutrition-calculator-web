@@ -1,39 +1,62 @@
-export const COLORS = {
-  // Core
-  primary: "#4F46E5",
-  primaryHover: "#4338CA",
+const COLOR_NAMES = {
+  // Accent
+  primary: "#46e593",
   secondary: "#6B7280",
-  // Text
-  textPrimary: "#2b2929",
-  textPrimaryAccent: "#1e40af",
-  textSecondary: "#1e1e1f",
-  success: "#10B981",
+
+  // Background
+  bgPrimary: "#ffffff",
+  bgPrimaryDarker: "#e3e3e3",
+  bgSecondary: "#adcdb0",
+
+  // Border
+  borderPrimary: "#ffffff",
+
+  // Errors
+  success: "#18ee67",
   warning: "#F59E0B",
   error: "#EF4444",
+};
+
+export const COLORS = {
+  // App
+  appBg: "#ffffff",
   // Content
-  contentBackground: "#b56666",
-  // HeaderBar
-  headerBg: "#d9dce1",
-  headerBorder: "#464646",
+  contentBackground: "#F6F6F6",
+  // Text
+  textPrimary: "#303030",
+  textSecondary: "#858585",
+  // InputField
+  inputBg: "#303030",
+  inputLabel: "#303030",
+  inputPlaceholder: "#303030",
+  inputBorder: "#303030",
+  inputBorderFocused: "#23853c",
+  // Button
+  buttonBg: "#63a035",
+  buttonBgHover: "#94ce67",
+  buttonText: "#fff",
+  // Header
+  headerBg: COLOR_NAMES.bgPrimary,
+  headerBorder: COLOR_NAMES.borderPrimary,
+  headerBottomBorder: "#ababab",
   // Sidebar
-  siderbarBg: "#d9dce1",
-  siderbarBorder: "#464646",
-  // Sidebar.header
-  sidebarHeaderBg: "#6381b1",
+  siderbarBg: COLOR_NAMES.bgPrimary,
+  siderbarBorder: COLOR_NAMES.borderPrimary,
+  // Sidebar.topbar
   // Sidebar.content
-  siderbarContentBg: "#d9dce1",
-  // Sidebar.links
-  sidebarButtonBg: "#9b9b9b",
-  sidebarButtonActiveBg: "#307acd",
-  sidebarButtonHoverBg: "#b0b4b8",
+  siderbarContentBg: COLOR_NAMES.bgPrimary,
+  // Sidebar.buttons
+  sidebarButtonBg: COLOR_NAMES.bgPrimary,
+  sidebarButtonActiveBg: "#86c656",
+  sidebarButtonHoverBg: "#63a035",
   // Sidebar.footer
-  siderbarFooterBg: "#818385",
+  siderbarFooterBg: COLOR_NAMES.bgPrimaryDarker,
   // Table.header
-  tableHeaderBackground: "#b6b6b6",
-  tableHeaderBorder: "#595959",
+  tableHeaderBackground: "#63a035",
+  tableHeaderBorder: COLOR_NAMES.borderPrimary,
   // Table.row
-  tableOddRowBackground: "#ffffff",
+  tableOddRowBackground: "#dedede",
   tableEvenRowBackground: "#f3f3f3",
   tableMouseOverRow: "#71c666",
-  tableRowBottomBorder: "#8e8282",
+  tableRowBottomBorder: COLOR_NAMES.borderPrimary,
 };

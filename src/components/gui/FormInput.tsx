@@ -4,25 +4,32 @@ import styled from "styled-components";
 const FieldGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+`;
+
+const Label = styled.span`
+  font-family: "Ubuntu";
+  color: ${COLORS.textPrimary};
 `;
 
 const Input = styled.input`
   color: ${COLORS.textPrimary};
   padding: 0.5rem 0.75rem;
-  border: 1px solid #53647c; /* gray-600 */
-  border-radius: 2px;
+  border: 1px solid ${COLORS.inputBorder};
+  border-radius: 8px;
   font-size: 1rem;
+  min-width: 200px;
 
   &:focus {
     outline: none;
-    border-color: #3b82f6; /* blue-500 */
+    border-color: ${COLORS.inputBorderFocused};
   }
 `;
 
 interface FormInputProps {
   label: string;
-  value: string;
+  placeholder?: string;
+  type?: string;
+  value: string | readonly string[] | number | undefined;
   readOnly?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -30,20 +37,22 @@ interface FormInputProps {
 const FormInput: React.FC<FormInputProps> = ({
   label,
   value,
+  type = "text",
+  placeholder = "",
   readOnly = false,
   onChange,
 }: FormInputProps) => {
   return (
     <FieldGroup>
-      {/* <Label>{label}</Label> */}
+      <Label>{label}</Label>
       <Input
         readOnly={readOnly}
         disabled={readOnly}
-        type="text"
+        type={type}
         name="name"
         value={value}
         onChange={onChange}
-        placeholder={label}
+        placeholder={placeholder}
         required
         autoComplete="off"
       />

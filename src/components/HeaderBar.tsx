@@ -16,7 +16,6 @@ const HeaderBar = styled.div`
   align-items: center;
   padding-left: 1rem; /* px-4 = 1rem left & right padding */
   padding-right: 1rem;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 `;
 
 export default HeaderBar;

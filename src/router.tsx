@@ -37,6 +37,8 @@ const router = createBrowserRouter([
       { path: "meals/create", element: <MealCreate /> },
     ],
   },
-]);
+], {
+  basename: "/nutrition-calculator/"
+});
 
 export default router;

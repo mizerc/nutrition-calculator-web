@@ -9,7 +9,7 @@ interface SidebarHeadingProps {
 
 const Heading = styled.div<{ marginTop?: string }>`
   color: ${COLORS.textSecondary};
-  border-bottom: 1px solid ${COLORS.siderbarBorder};
+  border-bottom: 1px solid ${COLORS.headerBottomBorder};
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;

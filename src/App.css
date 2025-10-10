@@ -1,9 +1,23 @@
-#root {
+/* #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  text-align: left;
+} */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
+
+h1 {
+  font-size: xx-large;
+  font-weight: 600;
+}
+h2 {
+  font-size: x-large;
+  font-weight: 600;
+}
+/* 
 
 .logo {
   height: 6em;
@@ -39,4 +53,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */

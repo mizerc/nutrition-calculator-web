@@ -9,6 +9,7 @@ import {
 } from "@/components/gui/Table";
 import VList from "@/components/gui/VList";
 import Spacer from "@/components/gui/Spacer";
+import FormHeader from "@/components/gui/FormHeader";
 
 const MealList: React.FC = () => {
   const data = [
@@ -36,11 +37,7 @@ const MealList: React.FC = () => {
 
   return (
     <VList>
-      <Header>
-        <Title>Meals</Title>
-        <Spacer />
-        <AddButton to={"/meals/create"}>+ Add New</AddButton>
-      </Header>
+      <FormHeader title="Meals" />
 
       <Table>
         <TableHeader>

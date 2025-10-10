@@ -8,6 +8,7 @@ import { FaHamburger } from "react-icons/fa";
 import HeaderUser from "@/components/HeaderUser";
 import Spacer from "@/components/gui/Spacer";
 import { COLORS } from "@/styles/Colors";
+import AppContainer from "@/components/gui/AppContainer";
 
 function Layout() {
   const topContent = (
@@ -37,9 +38,9 @@ function Layout() {
   );
 
   return (
-    <div className="app-container">
+    <AppContainer>
       <Topbar>
-        <h1 tw="text-lg font-semibold">Topbar</h1>
+        <h1 tw="text-lg font-semibold"></h1>
         <Spacer />
         <HeaderUser />
       </Topbar>
@@ -51,20 +52,32 @@ function Layout() {
         </SidebarLink>
         {/* Foods */}
         <SidebarHeading title="Foods" marginTop="1.5rem" />
-        <SidebarLink to="/foods/search">Search</SidebarLink>
-        <SidebarLink to="/foods/list">List</SidebarLink>
-        <SidebarLink to="/foods/create">Create</SidebarLink>
+        <SidebarLink icon={<FaHamburger />} to="/foods/search">
+          Search
+        </SidebarLink>
+        <SidebarLink icon={<FaHamburger />} to="/foods/list">
+          List
+        </SidebarLink>
+        <SidebarLink icon={<FaHamburger />} to="/foods/create">
+          Create
+        </SidebarLink>
         {/* Meals */}
         <SidebarHeading title="Meals" marginTop="1.5rem" />
-        <SidebarLink to="/meals/search">Search</SidebarLink>
-        <SidebarLink to="/meals/list">List</SidebarLink>
-        <SidebarLink to="/meals/create">Create</SidebarLink>
+        <SidebarLink icon={<FaHamburger />} to="/meals/search">
+          Search
+        </SidebarLink>
+        <SidebarLink icon={<FaHamburger />} to="/meals/list">
+          List
+        </SidebarLink>
+        <SidebarLink icon={<FaHamburger />} to="/meals/create">
+          Create
+        </SidebarLink>
       </Sidebar>
       <ContentContainer>
         <Outlet />
       </ContentContainer>
       <div id="detail"></div>
-    </div>
+    </AppContainer>
   );
 }
 export default Layout;

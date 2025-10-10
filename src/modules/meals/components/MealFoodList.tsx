@@ -10,6 +10,8 @@ const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid black;
+  background-color: "white";
+  border-radius: 8px;
   padding: 2rem;
 `;
 
@@ -17,8 +19,6 @@ const SubList = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px dashed black;
-  background-color: white;
-  margin-top: 1rem;
 `;
 
 const SubListItem = styled.div`
@@ -98,7 +98,7 @@ export default function MealFoodList() {
     // prevent duplicates
     if (!selectedFoods.find((f) => f.id === food.id)) {
       setSelectedFoods([...selectedFoods, food]);
-      setAvailableFoods([])
+      setAvailableFoods([]);
     }
   };
 

@@ -6,11 +6,10 @@ interface DashboardItemProps {
 }
 
 export const DashItem = styled.div<DashboardItemProps>`
-  background-color: #d6d6d6;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  background-color: #6fa67a;
 
   font-weight: 600;
-  color: #534848;
+  color: #000000;
 
   border-radius: 8px;
   padding: 1rem;

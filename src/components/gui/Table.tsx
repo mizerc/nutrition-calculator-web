@@ -13,6 +13,7 @@ const Title = styled.h1`
   font-size: 1.5rem;
   font-weight: 600;
   color: #000000;
+  border: 1px solid black;
 `;
 
 const AddButton = styled(Link)`
@@ -30,8 +31,9 @@ const AddButton = styled(Link)`
 `;
 
 const Table = styled.table`
-  width: 100%;
+  margin-top: 16px;
   border-collapse: collapse;
+  width: 100%;
 `;
 
 const TableHeader = styled.thead`
@@ -56,7 +58,6 @@ const TableBody = styled.tbody`
     &:nth-child(odd) {
       background-color: ${COLORS.tableOddRowBackground};
     }
-
     &:hover {
       background-color: ${COLORS.tableMouseOverRow};
     }
