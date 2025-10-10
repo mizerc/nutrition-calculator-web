@@ -13,7 +13,7 @@ enableMock(api);
 
 type HttpMethod = "get" | "post" | "put" | "delete";
 
-interface UseApiOptions<T> extends AxiosRequestConfig {
+interface UseApiOptions extends AxiosRequestConfig {
   method?: HttpMethod;
   url: string;
   data?: any; // body for POST/PUT
@@ -34,7 +34,7 @@ export function useApi<T = unknown>({
   data: body,
   params,
   autoFetch = false,
-}: UseApiOptions<T>): UseApiReturn<T> {
+}: UseApiOptions): UseApiReturn<T> {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(autoFetch);
   const [error, setError] = useState<string | null>(null);

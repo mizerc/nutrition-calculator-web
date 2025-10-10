@@ -7,11 +7,6 @@ const FieldGroup = styled.div`
   gap: 0.25rem;
 `;
 
-const Label = styled.label`
-  font-weight: 500;
-  font-size: 0.9rem;
-`;
-
 const Input = styled.input`
   color: ${COLORS.textPrimary};
   padding: 0.5rem 0.75rem;

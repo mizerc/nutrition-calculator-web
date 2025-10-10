@@ -2,7 +2,6 @@ import FormContainer from "@/components/gui/FormContainer";
 import FormInput from "@/components/gui/FormInput";
 import VList from "@/components/gui/VList";
 import { useApi } from "@/hooks/useApi";
-import type { Food } from "@/modules/foods/types/Food";
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Meal } from "../types/Meal";
@@ -17,7 +16,7 @@ const MealCreate = () => {
     id: 0,
     name: "",
   });
-  const [mealFoods, setMealFoods] = useState<Array<Food>>([]);
+  // const [mealFoods, setMealFoods] = useState<Array<Food>>([]);
 
   const { execute, loading } = useApi<Meal>({
     url: "/meals",
@@ -35,15 +34,15 @@ const MealCreate = () => {
     navigate("/meals/list");
   };
 
-  const addFoodToMeal = (food: Food) => {
-    if (!mealFoods.find((f) => f.id === food.id)) {
-      setMealFoods((prev) => [...prev, food]);
-    }
-  };
+  // const addFoodToMeal = (food: Food) => {
+  //   if (!mealFoods.find((f) => f.id === food.id)) {
+  //     setMealFoods((prev) => [...prev, food]);
+  //   }
+  // };
 
-  const removeFoodFromMeal = (foodId: number) => {
-    setMealFoods((prev) => prev.filter((f) => f.id !== foodId));
-  };
+  // const removeFoodFromMeal = (foodId: number) => {
+  //   setMealFoods((prev) => prev.filter((f) => f.id !== foodId));
+  // };
 
   if (loading) return <div>Submitting...</div>;
 
