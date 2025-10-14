@@ -1,4 +1,3 @@
-import { COLORS } from "@/styles/Colors";
 import styled from "styled-components";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
@@ -14,19 +13,19 @@ const Container = styled.form`
   }
 `;
 
-const Input = styled.input`
-  color: ${COLORS.textPrimary};
-  padding: 0.5rem 0.75rem;
-  border: 1px solid ${COLORS.inputBorder};
-  border-radius: 8px;
-  font-size: 1rem;
-  min-width: 200px;
+// const Input = styled.input`
+//   color: ${COLORS.textPrimary};
+//   padding: 0.5rem 0.75rem;
+//   border: 1px solid ${COLORS.inputBorder};
+//   border-radius: 8px;
+//   font-size: 1rem;
+//   min-width: 200px;
 
-  &:focus {
-    outline: none;
-    border-color: ${COLORS.inputBorderFocused};
-  }
-`;
+//   &:focus {
+//     outline: none;
+//     border-color: ${COLORS.inputBorderFocused};
+//   }
+// `;
 
 type GenderEnum = "female" | "male" | "other";
 
@@ -39,7 +38,7 @@ export default function Debug() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: {},
   } = useForm<IFormInput>();
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);

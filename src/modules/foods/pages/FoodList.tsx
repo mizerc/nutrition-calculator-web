@@ -10,7 +10,6 @@ import { useApi } from "@/hooks/useApi";
 import type { Food } from "../types/Food";
 import { useNavigate } from "react-router-dom";
 import PageContainer from "@/modules/core/componets/PageContainer";
-import Button from "@/components/gui/Button";
 
 const FoodList: React.FC = () => {
   const navigate = useNavigate();

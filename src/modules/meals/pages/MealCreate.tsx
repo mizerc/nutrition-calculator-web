@@ -1,13 +1,11 @@
 import FormContainer from "@/components/gui/FormContainer";
-import FormInput from "@/components/gui/FormInput";
-import VList from "@/components/gui/VList";
 import { useApi } from "@/hooks/useApi";
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import type { Meal, MeaCreatePostDTO } from "../types/Meal";
+import type { MeaCreatePostDTO } from "../types/Meal";
 import FoodPicker from "../components/FoodPicker";
 import Button from "@/components/gui/Button";
-import { Controller, useForm, type SubmitHandler } from "react-hook-form";
+// import { Controller, useForm, type SubmitHandler } from "react-hook-form";
 import { type Food } from "@/modules/foods/types/Food";
 import {
   Table,
@@ -17,11 +15,11 @@ import {
 } from "@/components/gui/Table";
 import PageContainer from "@/modules/core/componets/PageContainer";
 
-interface IMealCreateForm {
-  name: string;
-  timestamp: string;
-  foodList: Array<string>;
-}
+// interface IMealCreateForm {
+//   name: string;
+//   timestamp: string;
+//   foodList: Array<string>;
+// }
 
 const MealCreate = () => {
   const navigate = useNavigate();
@@ -33,7 +31,7 @@ const MealCreate = () => {
   //   formState: { errors },
   // } = useForm<IMealCreateForm>();
 
-  const onSubmit: SubmitHandler<IMealCreateForm> = (data) => console.log(data);
+  // const onSubmit: SubmitHandler<IMealCreateForm> = (data) => console.log(data);
 
   const [foodList, setFoodList] = useState<{ food: Food; weight: number }[]>(
     []
@@ -113,12 +111,12 @@ const MealCreate = () => {
 
   if (loading) return <div>Submitting...</div>;
 
-  const localDate = new Date(meal.timestamp_utc);
-  const formattedDate = localDate.toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  // const localDate = new Date(meal.timestamp_utc);
+  // const formattedDate = localDate.toLocaleDateString(undefined, {
+  //   year: "numeric",
+  //   month: "long",
+  //   day: "numeric",
+  // });
 
   const handleOnWeightChange = (foodId: number, newWeight: number) => {
     // [{food, weight},{food, weight},{food, weight},{food.id, weight},{food, weight}]
@@ -148,7 +146,7 @@ const MealCreate = () => {
     async function submit() {
       //  Mount DTO expected by API
       const newMeal = { ...meal, foodWeights: foodList };
-      setMeal((prev) => newMeal);
+      setMeal(newMeal);
       await execute(newMeal);
       navigate("/meals/list");
     }

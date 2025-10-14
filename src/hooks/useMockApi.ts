@@ -53,15 +53,15 @@ function mockFood(mock: AxiosMockAdapter) {
   });
 }
 
-interface MealsTable {
-  id: number;
-  name: string;
-}
-interface MealsFoodTable {
-  id: number;
-  food_id: string;
-  meal_id: string;
-}
+// interface MealsTable {
+//   id: number;
+//   name: string;
+// }
+// interface MealsFoodTable {
+//   id: number;
+//   food_id: string;
+//   meal_id: string;
+// }
 
 export const enableMock = (api: AxiosInstance) => {
   const mock = new AxiosMockAdapter(api, { delayResponse: 200 });
