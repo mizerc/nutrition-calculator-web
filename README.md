@@ -14,6 +14,17 @@ Just run `npm run deploy` to build in gh-pages branch.
 
 Live at [https://mauricioize.dev/nutrition-calculator/](https://mauricioize.dev/nutrition-calculator/).
 
+# Routes
+
+GET  /api/foods
+GET  /api/foods?q=<param>
+GET  /api/foods/:id
+POST /api/foods {name,timestamp, portion}
+
+GET  api/meals
+GET  api/meals?q=<term>
+POST api/meams {name, food_ids: [{}]}
+
 # Future Work
 
 - Responsible sidebar layout

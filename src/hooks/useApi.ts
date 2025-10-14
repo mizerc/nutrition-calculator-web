@@ -40,7 +40,8 @@ export function useApi<T = unknown>({
   const [error, setError] = useState<string | null>(null);
 
   const execute = useCallback(
-    async (overrideData?: any, overrideParams?: any): Promise<T | null> => {
+    async (overrideData?: T, overrideParams?: any): Promise<T | null> => {
+      console.log('EXECUTE')
       setLoading(true);
       setError(null);
       try {
@@ -49,8 +50,9 @@ export function useApi<T = unknown>({
           url,
           params: overrideParams ?? params,
         };
-        console.log("CONFIG", overrideParams);
+        
         if (method !== "get") config.data = overrideData ?? body;
+
         const res: AxiosResponse<T> = await api.request(config);
         setData(res.data);
         await new Promise((res) => setTimeout(res, 500));

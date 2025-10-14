@@ -1,9 +1,8 @@
 import Button from "@/components/gui/Button";
 import FormContainer from "@/components/gui/FormContainer";
-import FormHeader from "@/components/gui/FormHeader";
 import FormInput from "@/components/gui/FormInput";
-import VList from "@/components/gui/VList";
 import { useApi } from "@/hooks/useApi";
+import PageContainer from "@/modules/core/componets/PageContainer";
 import type { Food } from "@/modules/foods/types/Food";
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
@@ -38,10 +37,8 @@ const FoodCreate = () => {
   if (loading) return <div>Submitting...</div>;
 
   return (
-    <VList>
+    <PageContainer title="Food Create" button={<Button>Save</Button>}>
       <FormContainer onSubmit={handleSubmit}>
-        <FormHeader title="Food Create" button={<Button>Save</Button>} />
-
         <FormInput
           label="Name"
           placeholder="Orange Juice"
@@ -144,7 +141,7 @@ const FoodCreate = () => {
           />
         </FieldGroup> */}
       </FormContainer>
-    </VList>
+    </PageContainer>
   );
 };
 

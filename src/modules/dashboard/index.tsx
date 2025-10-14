@@ -1,10 +1,10 @@
 import DashGrid from "@/components/DashGrid";
 import { DashItem } from "@/components/DashItem";
+import PageContainer from "../core/componets/PageContainer";
 
 export default function Dashboard() {
   return (
-    <>
-      <h1 className="border-gray-400">DASHBOARD</h1>
+    <PageContainer title="Dashboard">
       <h2 className="border-gray-400">SECTION</h2>
       <DashGrid>
         <DashItem />
@@ -21,6 +21,6 @@ export default function Dashboard() {
         <DashItem />
         <DashItem />
       </DashGrid>
-    </>
+    </PageContainer>
   );
 }

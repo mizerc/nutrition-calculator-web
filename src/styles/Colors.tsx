@@ -52,11 +52,11 @@ export const COLORS = {
   // Sidebar.footer
   siderbarFooterBg: COLOR_NAMES.bgPrimaryDarker,
   // Table.header
-  tableHeaderBackground: "#63a035",
+  tableHeaderBackground: "#82aa63",
   tableHeaderBorder: COLOR_NAMES.borderPrimary,
   // Table.row
   tableOddRowBackground: "#dedede",
   tableEvenRowBackground: "#f3f3f3",
   tableMouseOverRow: "#71c666",
-  tableRowBottomBorder: COLOR_NAMES.borderPrimary,
+  tableRowBottomBorder: "#aaa",
 };

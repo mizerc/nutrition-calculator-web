@@ -1,50 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  AddButton,
-  Header,
   Table,
   TableBody,
+  TableButton,
   TableHeader,
-  Title,
 } from "@/components/gui/Table";
-import VList from "@/components/gui/VList";
-import Spacer from "@/components/gui/Spacer";
-import FormHeader from "@/components/gui/FormHeader";
+import { useApi } from "@/hooks/useApi";
+import type { Meal } from "../types/Meal";
+import { useNavigate } from "react-router-dom";
+import PageContainer from "@/modules/core/componets/PageContainer";
 
 const MealList: React.FC = () => {
-  const data = [
-    { id: 1, name: "Item 1", status: "Active" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 2, name: "Item 2", status: "Inactive" },
-    { id: 3, name: "Item 3", status: "Active" },
-  ];
+  const navigate = useNavigate();
+  const [meal, setMeal] = useState<Meal>();
+  const { data, loading } = useApi<Array<Meal>>({
+    url: "/meals",
+    method: "get",
+    autoFetch: true,
+  });
+
+  const handleClick = (meal: Meal) => {
+    navigate(`/meals/view/${meal.id}`);
+    setMeal(meal);
+  };
+
+  if (loading) return <div>Loading...</div>;
+  if (!data) return <div>No data available</div>;
+
+  // const data = [
+  //   { id: 1, name: "Item 1", status: "Active" },
+  //   { id: 2, name: "Item 2", status: "Inactive" },
+  // ];
 
   return (
-    <VList>
-      <FormHeader title="Meals" />
-
+    <PageContainer title="Meal List">
+      <pre>{JSON.stringify(meal)}</pre>
       <Table>
         <TableHeader>
           <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Status</th>
+            <th>Actions</th>
           </tr>
         </TableHeader>
         <TableBody>
@@ -52,12 +48,17 @@ const MealList: React.FC = () => {
             <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
-              <td>{item.status}</td>
+              <td>
+                <TableButton onClick={() => handleClick(item)}>
+                  VIEW
+                </TableButton>
+                <TableButton>EDIT</TableButton>
+              </td>
             </tr>
           ))}
         </TableBody>
       </Table>
-    </VList>
+    </PageContainer>
   );
 };
 

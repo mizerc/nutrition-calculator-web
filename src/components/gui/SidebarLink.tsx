@@ -32,7 +32,7 @@ const StyledNavLink = styled(NavLink)`
 
   &:hover {
     background: ${COLORS.sidebarButtonHoverBg};
-    color: ${COLORS.textPrimaryAccent};
+    color: ${COLORS.textPrimary};
   }
 `;
 

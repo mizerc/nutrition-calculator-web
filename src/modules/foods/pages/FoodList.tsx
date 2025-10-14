@@ -1,19 +1,16 @@
 import React from "react";
 import {
-  AddButton,
-  Header,
   Table,
   TableBody,
+  TableButton,
   TableHeader,
   TableRow,
-  Title,
 } from "@/components/gui/Table";
-import VList from "@/components/gui/VList";
 import { useApi } from "@/hooks/useApi";
 import type { Food } from "../types/Food";
 import { useNavigate } from "react-router-dom";
-import Spacer from "@/components/gui/Spacer";
-import FormHeader from "@/components/gui/FormHeader";
+import PageContainer from "@/modules/core/componets/PageContainer";
+import Button from "@/components/gui/Button";
 
 const FoodList: React.FC = () => {
   const navigate = useNavigate();
@@ -28,9 +25,7 @@ const FoodList: React.FC = () => {
   if (!data) return <div>No data available</div>;
 
   return (
-    <VList>
-      <FormHeader title="Foods" />
-
+    <PageContainer title="Food List">
       <Table>
         <TableHeader>
           <tr>
@@ -41,20 +36,23 @@ const FoodList: React.FC = () => {
         </TableHeader>
         <TableBody>
           {data.map((item) => (
-            <TableRow
-              key={item.id}
-              onClick={() => {
-                navigate(`/foods/view/${item.id}`);
-              }}
-            >
+            <TableRow key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
-              <td>Edit | View</td>
+              <td>
+                <TableButton
+                  onClick={() => {
+                    navigate(`/foods/view/${item.id}`);
+                  }}
+                >
+                  EDIT
+                </TableButton>
+              </td>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-    </VList>
+    </PageContainer>
   );
 };
 

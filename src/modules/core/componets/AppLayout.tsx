@@ -1,4 +1,4 @@
-import ContentContainer from "@/components/gui/ContentContainer";
+import ContentContainer from "@/modules/core/componets/ContentContainer";
 import Sidebar from "@/components/gui/SideBar";
 import SidebarHeading from "@/components/gui/SidebarHeading";
 import SidebarLink from "@/components/gui/SidebarLink";
@@ -10,7 +10,7 @@ import Spacer from "@/components/gui/Spacer";
 import { COLORS } from "@/styles/Colors";
 import AppContainer from "@/components/gui/AppContainer";
 
-function Layout() {
+function Sidebar1() {
   const topContent = (
     <div
       style={{
@@ -38,7 +38,7 @@ function Layout() {
   );
 
   return (
-    <AppContainer>
+    <>
       <Topbar>
         <h1 tw="text-lg font-semibold"></h1>
         <Spacer />
@@ -52,9 +52,9 @@ function Layout() {
         </SidebarLink>
         {/* Foods */}
         <SidebarHeading title="Foods" marginTop="1.5rem" />
-        <SidebarLink icon={<FaHamburger />} to="/foods/search">
+        {/* <SidebarLink icon={<FaHamburger />} to="/foods/search">
           Search
-        </SidebarLink>
+        </SidebarLink> */}
         <SidebarLink icon={<FaHamburger />} to="/foods/list">
           List
         </SidebarLink>
@@ -63,16 +63,30 @@ function Layout() {
         </SidebarLink>
         {/* Meals */}
         <SidebarHeading title="Meals" marginTop="1.5rem" />
-        <SidebarLink icon={<FaHamburger />} to="/meals/search">
+        {/* <SidebarLink icon={<FaHamburger />} to="/meals/search">
           Search
-        </SidebarLink>
+        </SidebarLink> */}
         <SidebarLink icon={<FaHamburger />} to="/meals/list">
           List
         </SidebarLink>
         <SidebarLink icon={<FaHamburger />} to="/meals/create">
           Create
         </SidebarLink>
+        <SidebarHeading title="Debug" marginTop="1.5rem" />
+
+        <SidebarLink icon={<FaHamburger />} to="/debug">
+          Debug1
+        </SidebarLink>
+        <SidebarHeading title="Settings" marginTop="1.5rem" />
       </Sidebar>
+    </>
+  );
+}
+
+function AppLayout() {
+  return (
+    <AppContainer>
+      <Sidebar1 />
       <ContentContainer>
         <Outlet />
       </ContentContainer>
@@ -80,4 +94,4 @@ function Layout() {
     </AppContainer>
   );
 }
-export default Layout;
+export default AppLayout;

@@ -31,6 +31,7 @@ interface FormInputProps {
   type?: string;
   value: string | readonly string[] | number | undefined;
   readOnly?: boolean;
+  required?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -41,6 +42,7 @@ const FormInput: React.FC<FormInputProps> = ({
   placeholder = "",
   readOnly = false,
   onChange,
+  required = true,
 }: FormInputProps) => {
   return (
     <FieldGroup>
@@ -53,7 +55,7 @@ const FormInput: React.FC<FormInputProps> = ({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        required
+        required={required}
         autoComplete="off"
       />
     </FieldGroup>

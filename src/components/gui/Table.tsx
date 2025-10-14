@@ -34,6 +34,7 @@ const Table = styled.table`
   margin-top: 16px;
   border-collapse: collapse;
   width: 100%;
+  padding: 2px;
 `;
 
 const TableHeader = styled.thead`
@@ -46,7 +47,20 @@ const TableHeader = styled.thead`
     font-size: 0.9rem;
     font-weight: 600;
     color: #181818;
-    border-bottom: 1px solid ${COLORS.tableHeaderBorder};
+    border-bottom: 1px solid black;
+    border-right: 1px dashed black;
+    &:last-child {
+      border-right: unset;
+    }
+  }
+`;
+
+const TableButton = styled.button`
+  margin: 2px;
+  padding: 0.25rem;
+  border: 1px solid black;
+  &:hover {
+    background-color: #eaa;
   }
 `;
 
@@ -58,18 +72,31 @@ const TableBody = styled.tbody`
     &:nth-child(odd) {
       background-color: ${COLORS.tableOddRowBackground};
     }
-    &:hover {
+    /* &:hover {
       background-color: ${COLORS.tableMouseOverRow};
-    }
+    } */
   }
   td {
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
     color: #101010;
     border-bottom: 1px solid ${COLORS.tableRowBottomBorder};
+    border-right: 1px dashed black;
+    &:last-child {
+      border-right: unset;
+    }
   }
 `;
 
 const TableRow = styled.tr``;
 
-export { TableBody, TableHeader, Table, TableRow, AddButton, Title, Header };
+export {
+  TableBody,
+  TableHeader,
+  TableButton,
+  Table,
+  TableRow,
+  AddButton,
+  Title,
+  Header,
+};

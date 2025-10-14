@@ -6,7 +6,6 @@ import { COLORS } from "@/styles/Colors";
 import styled from "styled-components";
 
 const Button = styled.button`
-  margin-top: 1rem;
   background-color: ${COLORS.buttonBg};
   color: ${COLORS.buttonText};
   border: none;
