@@ -9,6 +9,8 @@ import HeaderUser from "@/components/HeaderUser";
 import Spacer from "@/components/gui/Spacer";
 import { COLORS } from "@/styles/Colors";
 import AppContainer from "@/components/gui/AppContainer";
+import Button from "@/components/gui/Button";
+import { AppDb } from "@/modules/browsersql";
 
 function Sidebar1() {
   const topContent = (
@@ -46,12 +48,12 @@ function Sidebar1() {
       </Topbar>
       <Sidebar topbarContent={topContent}>
         {/* Overview */}
-        <SidebarHeading title="Overview" marginTop="1.5rem" />
+        <SidebarHeading title="Overview" />
         <SidebarLink to="/" icon={<FaHamburger />}>
           Dashboard
         </SidebarLink>
         {/* Foods */}
-        <SidebarHeading title="Foods" marginTop="1.5rem" />
+        <SidebarHeading title="Foods" />
         {/* <SidebarLink icon={<FaHamburger />} to="/foods/search">
           Search
         </SidebarLink> */}
@@ -62,7 +64,7 @@ function Sidebar1() {
           Create
         </SidebarLink>
         {/* Meals */}
-        <SidebarHeading title="Meals" marginTop="1.5rem" />
+        <SidebarHeading title="Meals" />
         {/* <SidebarLink icon={<FaHamburger />} to="/meals/search">
           Search
         </SidebarLink> */}
@@ -72,12 +74,29 @@ function Sidebar1() {
         <SidebarLink icon={<FaHamburger />} to="/meals/create">
           Create
         </SidebarLink>
-        <SidebarHeading title="Debug" marginTop="1.5rem" />
+        <SidebarHeading title="Debug" />
 
         <SidebarLink icon={<FaHamburger />} to="/debug">
           Debug1
         </SidebarLink>
-        <SidebarHeading title="Settings" marginTop="1.5rem" />
+        <SidebarHeading title="Settings" />
+        <Button
+          onClick={async () => {
+            AppDb.foods.clear();
+            const now = Date.now();
+            await AppDb.foods.bulkAdd([
+              {
+                name: "Banana",
+                kcal: 105,
+                portion_g: 100,
+                created_at: now,
+                updated_at: now,
+              },
+            ]);
+          }}
+        >
+          Reset Food Table
+        </Button>
       </Sidebar>
     </>
   );

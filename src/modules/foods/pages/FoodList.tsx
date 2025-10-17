@@ -7,14 +7,14 @@ import {
   TableRow,
 } from "@/components/gui/Table";
 import { useApi } from "@/hooks/useApi";
-import type { Food } from "../types/Food";
+import type { FoodDTO } from "../types/Food";
 import { useNavigate } from "react-router-dom";
 import PageContainer from "@/modules/core/componets/PageContainer";
 
 const FoodList: React.FC = () => {
   const navigate = useNavigate();
 
-  const { data, loading } = useApi<Array<Food>>({
+  const { data, loading } = useApi<Array<FoodDTO>>({
     url: "/foods",
     method: "get",
     autoFetch: true,
@@ -44,7 +44,7 @@ const FoodList: React.FC = () => {
                     navigate(`/foods/view/${item.id}`);
                   }}
                 >
-                  EDIT
+                  View
                 </TableButton>
               </td>
             </TableRow>

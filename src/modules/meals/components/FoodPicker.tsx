@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import FormInput from "@/components/gui/FormInput";
 import { useEffect, useState } from "react";
-import type { Food } from "@/modules/foods/types/Food";
+import type { FoodDTO } from "@/modules/foods/types/Food";
 import { useApi } from "@/hooks/useApi";
 import { debounce } from "lodash";
 
 interface FoodPickerProps {
-  onFoodPick: (food: Food) => void;
+  onFoodPick: (food: FoodDTO) => void;
 }
 
 const InputWrapper = styled.div`
@@ -42,10 +42,10 @@ const DropdownItem = styled.div`
 
 export default function FoodPicker({ onFoodPick }: FoodPickerProps) {
   const [foodSearch, setFoodSearch] = useState("");
-  const [availableFoods, setAvailableFoods] = useState<Food[]>([]);
+  const [availableFoods, setAvailableFoods] = useState<FoodDTO[]>([]);
   const MIN_CHARS_TO_SEARCH = 1;
 
-  const { execute, loading } = useApi<Food[]>({
+  const { execute, loading } = useApi<FoodDTO[]>({
     url: "/foods/search",
     method: "get",
   });
@@ -74,7 +74,7 @@ export default function FoodPicker({ onFoodPick }: FoodPickerProps) {
     }
   };
 
-  const addFoodToMeal = (food: Food) => {
+  const addFoodToMeal = (food: FoodDTO) => {
     onFoodPick(food);
     setFoodSearch("");
     setAvailableFoods([]);
@@ -83,6 +83,7 @@ export default function FoodPicker({ onFoodPick }: FoodPickerProps) {
   return (
     <InputWrapper>
       <FormInput
+        name="foodquery"
         label={`Food Picker ${
           loading ? "(loading...)" : "(auto-search with 2+ chars)"
         } (searchResults.size: ${availableFoods.length})`}

@@ -8,7 +8,6 @@ const FormContainer = styled.form`
   flex-direction: column;
   gap: 1rem;
   width: 100%;
-  border: 2px dashed blue;
 `;
 
 export default FormContainer;

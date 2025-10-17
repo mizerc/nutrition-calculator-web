@@ -1,7 +1,7 @@
 import { COLORS } from "@/styles/Colors";
 import styled from "styled-components";
 
-const Container = styled.form`
+const Container = styled.div`
   color: ${COLORS.textPrimary};
   display: flex;
   flex-direction: column;
@@ -33,12 +33,12 @@ const ButtonContainer = styled.div`
 `;
 
 interface PageContainerProps {
-  title: string;
+  title?: string;
   children: React.ReactNode;
   button?: React.ReactNode;
 }
 
-function PageContainer({ title, button, children }: PageContainerProps) {
+function PageContainer({ title = "", button, children }: PageContainerProps) {
   return (
     <Container>
       <HeaderRow>

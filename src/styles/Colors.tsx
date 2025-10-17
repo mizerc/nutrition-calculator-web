@@ -31,10 +31,15 @@ export const COLORS = {
   inputPlaceholder: "#303030",
   inputBorder: "#303030",
   inputBorderFocused: "#23853c",
+  inputReadOnlyBg: "#b6b6b6",
   // Button
   buttonBg: "#63a035",
   buttonBgHover: "#94ce67",
   buttonText: "#fff",
+  // ButtonToogle
+  buttonActiveBg: "#97f57b",
+  buttonActiveText: "#383838",
+  buttonActiveHover: "#cdffbeb",
   // Header
   headerBg: COLOR_NAMES.bgPrimary,
   headerBorder: COLOR_NAMES.borderPrimary,

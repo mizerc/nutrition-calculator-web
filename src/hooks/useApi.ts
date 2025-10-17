@@ -11,7 +11,7 @@ const api = axios.create({
 });
 enableMock(api);
 
-type HttpMethod = "get" | "post" | "put" | "delete";
+type HttpMethod = "get" | "post" | "put" | "delete" | "patch";
 
 interface UseApiOptions extends AxiosRequestConfig {
   method?: HttpMethod;
@@ -41,7 +41,6 @@ export function useApi<T = unknown>({
 
   const execute = useCallback(
     async (overrideData?: T, overrideParams?: any): Promise<T | null> => {
-      console.log('EXECUTE')
       setLoading(true);
       setError(null);
       try {
@@ -50,16 +49,17 @@ export function useApi<T = unknown>({
           url,
           params: overrideParams ?? params,
         };
-        
-        if (method !== "get") config.data = overrideData ?? body;
+
+        if (method !== "get") {
+          config.data = overrideData ?? body;
+        }
 
         const res: AxiosResponse<T> = await api.request(config);
         setData(res.data);
         await new Promise((res) => setTimeout(res, 500));
         return res.data;
       } catch (err: any) {
-        const msg = err.response?.data?.message || err.message;
-        setError(msg);
+        setError(err.response?.data?.message || err.message);
         return null;
       } finally {
         setLoading(false);

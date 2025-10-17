@@ -6,20 +6,20 @@ import {
   TableHeader,
 } from "@/components/gui/Table";
 import { useApi } from "@/hooks/useApi";
-import type { Meal } from "../types/Meal";
+import type { MealGetDTO } from "../types/Meal";
 import { useNavigate } from "react-router-dom";
 import PageContainer from "@/modules/core/componets/PageContainer";
 
 const MealList: React.FC = () => {
   const navigate = useNavigate();
-  const [meal, setMeal] = useState<Meal>();
-  const { data, loading } = useApi<Array<Meal>>({
+  const [meal, setMeal] = useState<MealGetDTO>();
+  const { data, loading } = useApi<Array<MealGetDTO>>({
     url: "/meals",
     method: "get",
     autoFetch: true,
   });
 
-  const handleClick = (meal: Meal) => {
+  const handleClick = (meal: MealGetDTO) => {
     navigate(`/meals/view/${meal.id}`);
     setMeal(meal);
   };
@@ -39,7 +39,9 @@ const MealList: React.FC = () => {
         <TableHeader>
           <tr>
             <th>ID</th>
+            <th>Timestamp</th>
             <th>Name</th>
+            <th>Foods</th>
             <th>Actions</th>
           </tr>
         </TableHeader>
@@ -47,6 +49,8 @@ const MealList: React.FC = () => {
           {data.map((item) => (
             <tr key={item.id}>
               <td>{item.id}</td>
+              <td>{item.createdAt}</td>
+              <td>{item.foods?.length}</td>
               <td>{item.name}</td>
               <td>
                 <TableButton onClick={() => handleClick(item)}>

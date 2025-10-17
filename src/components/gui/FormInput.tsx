@@ -11,13 +11,15 @@ const Label = styled.span`
   color: ${COLORS.textPrimary};
 `;
 
-const Input = styled.input`
+const Input = styled.input<{ $readOnly?: boolean }>`
   color: ${COLORS.textPrimary};
   padding: 0.5rem 0.75rem;
   border: 1px solid ${COLORS.inputBorder};
   border-radius: 8px;
   font-size: 1rem;
   min-width: 200px;
+  background-color: ${({ $readOnly }) =>
+    $readOnly ? COLORS.inputReadOnlyBg : "transparent"};
 
   &:focus {
     outline: none;
@@ -26,6 +28,7 @@ const Input = styled.input`
 `;
 
 interface FormInputProps {
+  name: string;
   label: string;
   placeholder?: string;
   type?: string;
@@ -36,6 +39,7 @@ interface FormInputProps {
 }
 
 const FormInput: React.FC<FormInputProps> = ({
+  name,
   label,
   value,
   type = "text",
@@ -44,15 +48,23 @@ const FormInput: React.FC<FormInputProps> = ({
   onChange,
   required = true,
 }: FormInputProps) => {
+  const inputValue =
+    value === null || value === undefined
+      ? ""
+      : typeof value === "number"
+      ? String(value)
+      : value;
+
   return (
     <FieldGroup>
       <Label>{label}</Label>
       <Input
+        $readOnly={readOnly}
         readOnly={readOnly}
         disabled={readOnly}
         type={type}
-        name="name"
-        value={value}
+        name={name}
+        value={inputValue}
         onChange={onChange}
         placeholder={placeholder}
         required={required}

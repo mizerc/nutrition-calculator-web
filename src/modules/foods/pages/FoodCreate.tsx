@@ -3,19 +3,21 @@ import FormContainer from "@/components/gui/FormContainer";
 import FormInput from "@/components/gui/FormInput";
 import { useApi } from "@/hooks/useApi";
 import PageContainer from "@/modules/core/componets/PageContainer";
-import type { Food } from "@/modules/foods/types/Food";
+import type { FoodDTO } from "@/modules/foods/types/Food";
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 
 const FoodCreate = () => {
   const navigate = useNavigate();
 
-  const [food, setFood] = useState<Food>({
+  const [food, setFood] = useState<FoodDTO>({
     id: 0,
     name: "",
+    portionGrams: 0,
+    kcal: 0,
   });
 
-  const { execute, loading } = useApi<Food>({
+  const { execute, loading } = useApi<FoodDTO>({
     url: "/foods",
     method: "post",
   });
@@ -26,6 +28,7 @@ const FoodCreate = () => {
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    console.log("ASDIOJAS");
     async function submit() {
       e.preventDefault();
       await execute(food);
@@ -37,25 +40,37 @@ const FoodCreate = () => {
   if (loading) return <div>Submitting...</div>;
 
   return (
-    <PageContainer title="Food Create" button={<Button>Save</Button>}>
-      <FormContainer onSubmit={handleSubmit}>
+    <PageContainer
+      title="Food Create"
+      button={
+        <Button form="foodForm" type="submit">
+          Save
+        </Button>
+      }
+    >
+      <pre>{JSON.stringify(food)}</pre>
+      <FormContainer id="foodForm" onSubmit={handleSubmit}>
         <FormInput
+          name="name"
           label="Name"
           placeholder="Orange Juice"
           value={food.name}
           onChange={handleChange}
         />
         <FormInput
+          name="portionGrams"
           label="Portion (g)"
           placeholder="100"
-          value={food.name}
+          value={food.portionGrams}
+          type="number"
           onChange={handleChange}
         />
         <FormInput
+          name="kcal"
           label="Kcal"
           placeholder={"250"}
           type={"number"}
-          value={food.name}
+          value={food.kcal}
           onChange={handleChange}
         />
 
