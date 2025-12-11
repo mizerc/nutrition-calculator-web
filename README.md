@@ -1,6 +1,9 @@
 # About
 
-Web application, offline first, to allow you to visualize the nutrition load of your meals.
+Web application to allow you to visualize the nutrition load of your meals.
+
+It is fully offline, ie, it doesn't store any user date in any server, it uses only the built-in storage from the Browser itself.
+It will erase all the data if you delete site data from your browser.
 
 Check live at [https://mauricioize.dev/nutrition-calculator/](https://mauricioize.dev/nutrition-calculator/).
 
