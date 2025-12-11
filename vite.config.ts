@@ -25,5 +25,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/nutrition-calculator/"
+  base: "/nutrition-calculator-web/"
 });
