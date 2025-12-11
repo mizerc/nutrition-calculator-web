@@ -1,107 +1,21 @@
 # About
 
-Testing the new React Router 7 and React 19.
+Web application, offline first, to allow you to visualize the nutrition load of your meals.
 
-Project initialized using Vite with `npm create vite@latest nutrition-calculator -- --template react-ts`.
+Check live at [https://mauricioize.dev/nutrition-calculator/](https://mauricioize.dev/nutrition-calculator/).
 
-Tailwind config file: `npx tailwindcss init --full`
+# Tech Stack
 
-Icons: https://react-icons.github.io/react-icons/icons/fa/
+This web application is using React 19 and React Router 7, for more info check the package.json file.
+
+This project was initialized using Vite with `npm create vite@latest nutrition-calculator -- --template react-ts`.
+
+The Tailwind config file initialized with `npx tailwindcss init --full`.
+
+Icons from `https://react-icons.github.io/react-icons/icons/fa/`.
 
 # Deploying
 
-Just run `npm run deploy` to build in gh-pages branch.
+This project is using gh-pages to deploy the build to the gh-pages branch, which is automatically hosted at Github pages.
 
-Live at [https://mauricioize.dev/nutrition-calculator/](https://mauricioize.dev/nutrition-calculator/).
-
-# Routes
-
-GET  /api/foods
-GET  /api/foods?q=<param>
-GET  /api/foods/:id
-POST /api/foods {name,timestamp, portion}
-
-GET  api/meals
-GET  api/meals?q=<term>
-POST api/meams {name, food_ids: [{}]}
-
-# Future Work
-
-- Responsible sidebar layout
-- Resposible grid layout
-- A11y
-- Monitoring
-
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Once you do a code change, you must run `npm run deploy` to rebuild in gh-pages branch.
