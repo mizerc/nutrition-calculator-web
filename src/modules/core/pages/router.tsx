@@ -45,7 +45,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: "/nutrition-calculator/",
+    basename: "/nutrition-calculator-web/",
   }
 );
 
