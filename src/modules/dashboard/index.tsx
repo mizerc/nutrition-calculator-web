@@ -1,4 +1,4 @@
-import DashGrid from "@/components/DashGrid";
+import DashGrid from "@/components/gui/DashGrid";
 import { DashItem } from "@/components/DashItem";
 import PageContainer from "../core/componets/PageContainer";
 
