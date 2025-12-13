@@ -19,6 +19,4 @@ Icons from `https://react-icons.github.io/react-icons/icons/fa/`.
 
 # Deploying
 
-This project is using gh-pages to deploy the build to the gh-pages branch, which is automatically hosted at Github pages.
-
-Once you do a code change, you must run `npm run deploy` to rebuild in gh-pages branch.
+Once you do a code change, you need to manually run `npm run deploy` to build the project and to move the build folder to the gh-pages branch, which then is automatically hosted by Github Pages.
