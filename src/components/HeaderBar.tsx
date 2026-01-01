@@ -1,5 +1,3 @@
-// import tw from "twin.macro";
-
 import { COLORS } from "@/styles/Colors";
 import styled from "styled-components";
 

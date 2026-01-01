@@ -1,5 +1,5 @@
 import DashGrid from "@/components/gui/DashGrid";
-import { DashItem } from "@/components/DashItem";
+import { DashItem } from "@/components/gui/DashItem";
 import PageContainer from "../core/componets/PageContainer";
 
 export default function Dashboard() {

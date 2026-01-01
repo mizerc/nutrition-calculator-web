@@ -2,7 +2,7 @@ import ContentContainer from "@/modules/core/componets/ContentContainer";
 import Sidebar from "@/components/gui/SideBar";
 import SidebarHeading from "@/components/gui/SidebarHeading";
 import SidebarLink from "@/components/gui/SidebarLink";
-import Topbar from "@/components/HeaderBar";
+import HeaderBar from "@/components/HeaderBar";
 import { Outlet } from "react-router-dom";
 import { FaHamburger } from "react-icons/fa";
 import HeaderUser from "@/components/HeaderUser";
@@ -41,11 +41,11 @@ function Sidebar1() {
 
   return (
     <>
-      <Topbar>
+      <HeaderBar>
         <h1 tw="text-lg font-semibold"></h1>
         <Spacer />
         <HeaderUser />
-      </Topbar>
+      </HeaderBar>
       <Sidebar topbarContent={topContent}>
         {/* Overview */}
         <SidebarHeading title="Overview" />
